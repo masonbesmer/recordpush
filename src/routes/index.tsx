@@ -1,87 +1,130 @@
 import { createFileRoute } from '@tanstack/react-router'
+import '../styles/landing.css'
 
-export const Route = createFileRoute('/')({ component: App })
+export const Route = createFileRoute('/')({ component: LandingPage })
 
-function App() {
+function LandingPage() {
   return (
-    <main className="page-wrap px-4 pb-8 pt-14">
-      <section className="island-shell rise-in relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-14">
-        <div className="pointer-events-none absolute -left-20 -top-24 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(79,184,178,0.32),transparent_66%)]" />
-        <div className="pointer-events-none absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(47,106,74,0.18),transparent_66%)]" />
-        <p className="island-kicker mb-3">TanStack Start Base Template</p>
-        <h1 className="display-title mb-5 max-w-3xl text-4xl leading-[1.02] font-bold tracking-tight text-[var(--sea-ink)] sm:text-6xl">
-          Start simple, ship quickly.
-        </h1>
-        <p className="mb-8 max-w-2xl text-base text-[var(--sea-ink-soft)] sm:text-lg">
-          This base starter intentionally keeps things light: two routes, clean
-          structure, and the essentials you need to build from scratch.
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <a
-            href="/about"
-            className="rounded-full border border-[rgba(50,143,151,0.3)] bg-[rgba(79,184,178,0.14)] px-5 py-2.5 text-sm font-semibold text-[var(--lagoon-deep)] no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(79,184,178,0.24)]"
-          >
-            About This Starter
-          </a>
-          <a
-            href="https://tanstack.com/router"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border border-[rgba(23,58,64,0.2)] bg-white/50 px-5 py-2.5 text-sm font-semibold text-[var(--sea-ink)] no-underline transition hover:-translate-y-0.5 hover:border-[rgba(23,58,64,0.35)]"
-          >
-            Router Guide
-          </a>
+    <div className="landing-root">
+      {/* Hero */}
+      <section className="landing-hero">
+        <div className="landing-wrap">
+          <p className="landing-kicker">Early Access</p>
+          <h1 className="landing-heading">Never miss a press.</h1>
+          <p className="landing-subtext">
+            Track vinyl releases across your favorite stores. Get notified the
+            moment new pressings drop.
+          </p>
+          <div className="landing-ctas">
+            <a href="#" className="landing-btn-primary">Sign Up Free</a>
+            <a href="#" className="landing-btn-secondary">Browse Stores</a>
+          </div>
         </div>
       </section>
 
-      <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {[
-          [
-            'Type-Safe Routing',
-            'Routes and links stay in sync across every page.',
-          ],
-          [
-            'Server Functions',
-            'Call server code from your UI without creating API boilerplate.',
-          ],
-          [
-            'Streaming by Default',
-            'Ship progressively rendered responses for faster experiences.',
-          ],
-          [
-            'Tailwind Native',
-            'Design quickly with utility-first styling and reusable tokens.',
-          ],
-        ].map(([title, desc], index) => (
-          <article
-            key={title}
-            className="island-shell feature-card rise-in rounded-2xl p-5"
-            style={{ animationDelay: `${index * 90 + 80}ms` }}
-          >
-            <h2 className="mb-2 text-base font-semibold text-[var(--sea-ink)]">
-              {title}
-            </h2>
-            <p className="m-0 text-sm text-[var(--sea-ink-soft)]">{desc}</p>
-          </article>
-        ))}
+      {/* How It Works */}
+      <section className="landing-section">
+        <div className="landing-wrap">
+          <p className="landing-kicker">How It Works</p>
+          <h2 className="landing-section-heading">
+            Three steps to never missing a drop.
+          </h2>
+          <div className="landing-steps">
+            {[
+              { n: '1', title: 'Sign Up', desc: 'Create a free account in seconds.' },
+              { n: '2', title: 'Pick Stores', desc: 'Choose which stores to monitor.' },
+              { n: '3', title: 'Get Notified', desc: 'Receive alerts when releases drop.' },
+            ].map(({ n, title, desc }) => (
+              <div key={n} className="landing-step">
+                <div className="landing-step-num">{n}</div>
+                <p className="landing-step-title">{title}</p>
+                <p className="landing-step-desc">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      <section className="island-shell mt-8 rounded-2xl p-6">
-        <p className="island-kicker mb-2">Quick Start</p>
-        <ul className="m-0 list-disc space-y-2 pl-5 text-sm text-[var(--sea-ink-soft)]">
-          <li>
-            Edit <code>src/routes/index.tsx</code> to customize the home page.
-          </li>
-          <li>
-            Update <code>src/components/Header.tsx</code> and{' '}
-            <code>src/components/Footer.tsx</code> for brand links.
-          </li>
-          <li>
-            Add routes in <code>src/routes</code> and tweak visual tokens in{' '}
-            <code>src/styles.css</code>.
-          </li>
-        </ul>
+      {/* Feature Highlights */}
+      <section className="landing-section">
+        <div className="landing-wrap">
+          <p className="landing-kicker">Features</p>
+          <h2 className="landing-section-heading">Built for serious collectors.</h2>
+          <div className="landing-cards">
+            {[
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                ),
+                title: 'Track New Releases',
+                desc: "Monitor store pages for new vinyl pressings as they're listed.",
+              },
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                  </svg>
+                ),
+                title: 'Instant Alerts',
+                desc: 'Get notified by email or in-app the moment a release appears.',
+              },
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                ),
+                title: 'Wishlist',
+                desc: "Save records you're hunting so you never lose track.",
+              },
+            ].map(({ icon, title, desc }) => (
+              <article key={title} className="landing-card">
+                <div className="landing-card-icon">{icon}</div>
+                <h3 className="landing-card-title">{title}</h3>
+                <p className="landing-card-desc">{desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
-    </main>
+
+      {/* Tracked Stores */}
+      <section className="landing-section">
+        <div className="landing-wrap">
+          <p className="landing-kicker">Tracked Stores</p>
+          <h2 className="landing-section-heading">
+            We watch the stores you care about.
+          </h2>
+          <div className="landing-stores">
+            {['Discogs', 'Music Direct', 'Acoustic Sounds', 'Plaid Room'].map(
+              (name) => (
+                <div key={name} className="landing-store-chip">
+                  <span className="landing-store-dot" />
+                  <span className="landing-store-name">{name}</span>
+                </div>
+              ),
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Coming Soon */}
+      <section className="landing-section">
+        <div className="landing-wrap">
+          <div className="landing-coming-soon">
+            <p className="landing-kicker">Coming Soon</p>
+            <h2 className="landing-heading">recordpush is in early access.</h2>
+            <p className="landing-coming-soon-body">
+              Join the waitlist to be first in line when we launch.
+            </p>
+            <a href="#" className="landing-btn-primary">Join Waitlist</a>
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }
