@@ -1,0 +1,11 @@
+allowBuilds:
+  '@prisma/engines': true
+  '@sentry/cli': true
+  esbuild: true
+  prisma: true
+onlyBuiltDependencies:
+  - '@prisma/engines'
+  - '@sentry/cli'
+  - esbuild
+  - prisma
+  - lightningcss
