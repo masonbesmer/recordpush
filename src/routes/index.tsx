@@ -117,7 +117,7 @@ function LandingPage() {
         <div className="landing-wrap">
           <div className="landing-coming-soon">
             <p className="landing-kicker">Coming Soon</p>
-            <h2 className="landing-heading">recordpush is in early access.</h2>
+            <h2 className="landing-coming-soon-heading">recordpush is in early access.</h2>
             <p className="landing-coming-soon-body">
               Join the waitlist to be first in line when we launch.
             </p>

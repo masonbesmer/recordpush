@@ -274,9 +274,14 @@
   margin: 0 auto;
 }
 
-.landing-coming-soon .landing-heading {
+.landing-coming-soon-heading {
+  font-family: "Fraunces", Georgia, serif;
   font-size: clamp(1.5rem, 4vw, 2rem);
-  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: #f5e6c8;
+  line-height: 1.1;
+  letter-spacing: 0;
+  margin: 0 0 0.75rem;
 }
 
 .landing-coming-soon-body {
